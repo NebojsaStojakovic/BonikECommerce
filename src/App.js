@@ -34,15 +34,19 @@ function App() {
       setCartItem(cartItem.map((item) => (item.id === product.id ? { ...productExit, qty: productExit.qty - 1 } : item)))
     }
   }
+
+  const removeItem = (product) => {
+    const newItems = cartItem.filter((item) => item.id !== product.id)
+    setCartItem(newItems);
+  }
   return (
     <>
     <BrowserRouter>
     <Header cartItem={cartItem}/>
       <Routes>
         <Route path="/" exact element={<Pages productItems={productItems} addToCart={addToCart}/>}/>
-      </Routes>
-      <Routes>
-        <Route path="/cart" exact element={<Cart cartItem={cartItem} addToCart={addToCart} decreaseQty={decreaseQty}/>}/>
+
+        <Route path="/cart" exact element={<Cart cartItem={cartItem} addToCart={addToCart} decreaseQty={decreaseQty} removeItem={removeItem}/>}/>
       </Routes>
     </BrowserRouter>
     </>

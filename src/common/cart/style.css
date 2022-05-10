@@ -56,27 +56,45 @@
     text-align: right;
     margin-right: 10px;
 }
+.removeCart button i {
+    cursor: pointer;
+}
 
 .cartControl {
     margin-top: 50px;
 }
 
-.cartControl button {
+.cartControl button
+ {
     width: 40px;
     height: 40px;
     margin: 10px;
     border-radius: 5px;
     font-size: 20px;
 }
+.removeCart button {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 5px;
+    display: grid;
+    place-items: center;
+}
 
-.incCart {
+.incCart,
+.desCart,
+.removeCart button {
     background: none;
     border: 1px solid rgb(3 0 71 / 9%);
     color: #e94560;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
-
-.desCart {
-    background: #f6f9fc;
+.incCart:hover,
+.desCart:hover,
+.removeCart button:hover {
+    color: black;
+    background: #e94560;
 }
 
 .cart-total h4 {
